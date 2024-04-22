@@ -16,8 +16,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                sh 'docker run -p 5173:5173 frontend'
-                sh 'docker run -p 5555:5555 backend'
+                sh 'docker run -p 5173:5173 frontend && docker run -p 5555:5555 backend'
             }
         }
     }
