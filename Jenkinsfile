@@ -6,13 +6,11 @@ pipeline {
                 checkout scm
             }
         }
-        
+
         stage('Build') {
             steps {
-                sh 'cd backend'
-                sh 'docker build -t frontend .'
-                sh 'cd ../frontend'
-                sh 'docker build -t backend .'
+                sh 'cd backend && docker build -t frontend .'
+                sh 'cd frontend && docker build -t backend .'
             }
         }
 
